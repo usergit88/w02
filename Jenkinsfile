@@ -20,20 +20,7 @@ pipeline {
         }
       }
     }
-    stage('Test Image') {
-      steps {
-        sh './scripts/test.sh'
-        input message: 'Finished using the web site? (Click "Proceed" to continue)'
-      }
-    }
-    stage('Push Image to the Registry') {
-      steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
-      }
+
     }
     stage('Remove local image') {
       steps{
