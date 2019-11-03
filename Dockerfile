@@ -7,13 +7,13 @@ ARG JAVA_VERSION='1.8.0'
 
 LABEL Version 1.${TOMCAT_MAJOR}
 LABEL maintainer="https://github.com/usergit88/"
-LABEL credits="https://github.com/w01"
+LABEL credits="https://github.com/w02"
 
 ENV USER_NAME='user' \
     INSTANCE_NAME='instance'
 
 # Install dependencies
-RUN yum update -y && yum install -y wget gzip tar
+# RUN yum update -y && yum install -y wget gzip tar
 
 # Install jdk
 RUN yum install -y java-${JAVA_VERSION}-openjdk-devel && \
