@@ -1,5 +1,5 @@
 # Create the image from the latest image
-FROM centos:latest
+FROM qsecofr88/k2
 
 #ARG TOMCAT_MAJOR='7'
 #ARG TOMCAT_VERSION='7.0.75'
