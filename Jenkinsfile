@@ -20,8 +20,6 @@ pipeline {
         }
       }
     }
-
-    }
     stage('Remove local image') {
       steps{
         sh "docker rmi -f $registry:$BUILD_NUMBER"
