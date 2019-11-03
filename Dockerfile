@@ -9,8 +9,8 @@ FROM qsecofr88/k2
 #LABEL maintainer="https://github.com/usergit88/"
 #LABEL credits="https://github.com/w02"
 
-ENV USER_NAME='user' \
-    INSTANCE_NAME='instance'
+#ENV USER_NAME='user' \
+ #   INSTANCE_NAME='instance'
 
 # Install dependencies
 # RUN yum update -y && yum install -y wget gzip tar
@@ -26,12 +26,12 @@ ENV USER_NAME='user' \
 #rm /tmp/tomcat.tgz
 
 # Add the tomcat manager users file
-ADD tomcat-users.xml /opt/tomcat/conf/
+#ADD tomcat-users.xml /opt/tomcat/conf/
 
 # Expose HTTP and AJP ports
-EXPOSE 8080 8009
+#EXPOSE 8080 8009
 
 # Mount external volumes for logs and webapps
-VOLUME ["/opt/tomcat/webapps", "/opt/tomcat/logs"]
+#VOLUME ["/opt/tomcat/webapps", "/opt/tomcat/logs"]
 
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+#CMD ["/opt/tomcat/bin/catalina.sh", "run"]
