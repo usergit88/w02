@@ -1,32 +1,12 @@
 pipeline {
-  environment {
-    registry = "qsecofr88/k2"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
-  }
-  agent any
-  stages {
-    stage('Build Image') {
-      steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        }
-      }
+    agent {
+        docker { image 'node:7-alpine' }
     }
-    stage('Run Image') {
-      steps {
-        script {
-          dockerContainer = dockerImage.run("-p 8080:8080")
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
         }
-      }
     }
-    stage('Remove local image') {
-      steps{
-        sh "docker rmi -f $registry:$BUILD_NUMBER"
-        script {
-           dockerContainer.stop()
-        }
-      }
-    }
-  }
 }
